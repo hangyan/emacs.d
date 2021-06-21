@@ -16,6 +16,8 @@
 
   (maybe-require-package 'ibuffer-projectile))
 
+(require-package 'treemacs)
+
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
