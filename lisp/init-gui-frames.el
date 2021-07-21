@@ -89,5 +89,10 @@
 (require-package 'disable-mouse)
 
 
+;; force set font
+(set-frame-font "Comic Mono 14" nil t)
+
+
+
 (provide 'init-gui-frames)
 ;;; init-gui-frames.el ends here

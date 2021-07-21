@@ -49,5 +49,11 @@
 (add-auto-mode 'conf-mode "^Procfile\\'")
 
 
+
+;;; ebpf
+(add-to-list 'auto-mode-alist '("\\.ebpf\\'" . c-mode))
+(require-package 'bpftrace-mode)
+
+
 (provide 'init-misc)
 ;;; init-misc.el ends here
