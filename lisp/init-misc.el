@@ -49,6 +49,31 @@
 (add-auto-mode 'conf-mode "^Procfile\\'")
 
 
+;;; dumb-jump
+;;; install ag:  brew install the_silver_searcher
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
+
+(defun my-toggle-ecb ()
+  "aaa."
+  (interactive)
+  (message (concat "rg -n " (thing-at-point 'word 'no-properties)))
+  )
+
+
+
+(defun my-grep ()
+  "Setting up grep-command using current word under cursor as a search string."
+  (interactive)
+  (let* ((cur-word (thing-at-point 'word))
+         (cmd (concat "rg -n -H --no-heading -e " cur-word  " $(git rev-parse --show-toplevel || pwd)")))
+    (grep-apply-setting 'grep-command cmd)
+    (grep cmd)))
+
+
+;;; use grep
+;;; brew install ripgrep
+(global-set-key (kbd "C-x C-g") 'my-grep)
 
 ;;; ebpf
 (add-to-list 'auto-mode-alist '("\\.ebpf\\'" . c-mode))
